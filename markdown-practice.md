@@ -62,7 +62,7 @@ console.log(hello("Student"));
 ```
 ## Exercise 8 — Blockquote
 
-Practice every day — progress matters more than perfection.
+> Practice every day — progress matters more than perfection.
 
 About Me
 
