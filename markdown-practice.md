@@ -64,12 +64,38 @@ console.log(hello("Student"));
 
 > Practice every day — progress matters more than perfection.
 
-About Me
+---
 
-I am currently learning web development. I started with HTML and CSS and now moving into JavaScript.
+## About Me (Bonus)
 
-I use VS Code for coding and GitHub for storing my projects.
+### Introduction
+I am a **web development student** currently learning *frontend development* using `HTML`, `CSS`, and JavaScript.
 
-My goal is to become a skilled web developer and build real applications.
+### Goals
+- Become a full-stack developer
+- Build real-world projects
+- Improve my Git and GitHub skills
 
-GitHub: https://github.com/pius-kamau
+### My Learning Progress
+1. Started with HTML basics
+2. Learned CSS styling
+3. Now learning JavaScript
+
+### Tools I Use
+| Tool | Purpose | Link |
+|------|--------|------|
+| VS Code | Code editor | https://code.visualstudio.com |
+| GitHub | Version control | https://github.com/pius-kamau |
+
+### Current Tasks
+- [x] Learn HTML basics
+- [x] Learn Markdown
+- [ ] Master JavaScript
+- [ ] Build projects
+
+### Quote I Follow
+> Consistency beats motivation every time.
+
+### Code Example
+```javascript
+console.log("Keep learning, keep building!");
