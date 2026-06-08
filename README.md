@@ -13,7 +13,7 @@ I enjoy solving real-world problems, thinking in systems, and building software 
 ---
 
 * 🌍  Based in Nairobi, Kenya
-* ✉️  Contact: [07299kama@gmail.com](mailto:piusmwangi611@gmail.com)
+* ✉️  Contact: [pitechtechnologies@gmail.com](mailto:pitechtechnologies@gmail.com)
 * 🧠  Focus: Fullstack Development (Backend-heavy)
 * 🚀  Currently building scalable SaaS systems
 * 🤝  Open to collaboration on impactful projects
