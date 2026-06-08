@@ -1,144 +1,180 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pius Kamau | Junior Backend Developer</title>
+  <title>Pius Kamau | Junior Web Developer</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
+  <div class="container">
 
-  <!-- HERO SECTION:  -->
-  <section class="hero">
-    <div class="badge">Junior Backend Engineer • Problem Solver • Continuous Learner</div>
-    <h1>Pius Kamau</h1>
-    <p>Junior Backend Developer · API & Database Focus · Building robust, scalable systems with clean architecture</p>
-  </section>
+    <header class="header">
+      <div class="name">Pius Kamau</div>
 
-  <section class="grid">
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="https://github.com/pius-kamau" target="_blank">GitHub</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-    <!-- About Me -  -->
-    <div class="card">
-      <h2>About Me</h2>
-      <div class="highlight-badge">backend foundation · junior developer</div>
+    <section class="hero">
+      <div class="role">Junior Web Developer</div>
+
+      <h1>
+        Building practical web solutions
+        with clean and reliable code.
+      </h1>
+
       <p>
-        I am a junior developer with a strong backend foundation and a deep enthusiasm for server-side logic, data architecture, and API design.
-        My focus lies in writing efficient, secure, and maintainable code — from authentication workflows to database interactions and integration patterns.
-        I thrive on solving backend challenges, learning best practices, and collaborating with teams to deliver seamless digital products.
+        Passionate about creating responsive websites, learning modern technologies,
+        and turning ideas into real web applications.
       </p>
-      <div class="stack-icons">
-        <span class="tech-tag">Node.js</span>
-        <span class="tech-tag">Express</span>
-        <span class="tech-tag">PostgreSQL</span>
-        <span class="tech-tag">MongoDB</span>
-        <span class="tech-tag">REST APIs</span>
-        <span class="tech-tag">Python</span>
-      </div>
-    </div>
+    </section>
 
-    <!-- Core Technical Skills -->
-    <div class="card">
-      <h2>Core Technical Skills</h2>
-      <ul>
-        <li><strong>Backend languages:</strong> JavaScript (Node.js), Python, foundational knowledge in Go.</li>
-        <li><strong>Databases & ORMs:</strong> PostgreSQL, MongoDB, Mongoose, SQLite — schema design, indexing, and query fundamentals.</li>
-        <li><strong>API development:</strong> RESTful architecture, JWT authentication, request validation, structured error handling.</li>
-        <li><strong>Version control & DevOps basics:</strong> Git, GitHub, basic CI concepts, deployment fundamentals (Render, Heroku).</li>
-        <li><strong>Frontend fundamentals:</strong> HTML5, CSS3, responsive layouts, and React basics for effective collaboration.</li>
-      </ul>
-      <p class="skill-note">
-        I prioritize writing clean, documented, and testable backend code to ensure stability and team scalability.
+    <section id="about" class="two-col">
+
+      <div>
+        <div class="section-label">About Me</div>
+
+        <div class="about-text">
+          <p>
+            I'm a junior web developer based in Nairobi, Kenya. I enjoy
+            building modern websites and learning how web applications work
+            from frontend interfaces to backend systems.
+          </p>
+
+          <p>
+            My approach is simple: learn by building. Every project helps me
+            improve my coding skills, understand real-world development
+            workflows, and become a better engineer.
+          </p>
+        </div>
+      </div>
+
+      <div>
+
+        <div class="section-label">Core Skills</div>
+
+        <div class="skills-list">
+          <span class="skill">HTML5</span>
+          <span class="skill">CSS3</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">Git</span>
+          <span class="skill">GitHub</span>
+          <span class="skill">Responsive Design</span>
+          <span class="skill">Basic Node.js</span>
+          <span class="skill">REST APIs</span>
+        </div>
+
+        <div style="margin-top:2rem;">
+          <div class="section-label">Currently Learning</div>
+
+          <div class="skills-list">
+            <span class="skill">Express.js</span>
+            <span class="skill">PostgreSQL</span>
+            <span class="skill">Backend Development</span>
+            <span class="skill">API Development</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="mission-block">
+
+      <h3>Career Goals</h3>
+
+      <p>
+        My goal is to become a full-stack developer capable of building
+        complete web applications. I am focused on gaining practical
+        experience, contributing to meaningful projects, and continuously
+        improving my technical skills.
       </p>
-    </div>
 
-    <!-- Career Goals  -->
-    <div class="card">
-      <h2>Career Goals</h2>
-      <ul>
-        <li>Progress into a mid-level backend role, mastering distributed systems and microservices architecture.</li>
-        <li>Learn cloud platforms (AWS, Azure) and infrastructure as code to deploy resilient applications.</li>
-        <li>Contribute to open-source backend projects and build production-grade APIs handling real-world traffic.</li>
-        <li>Specialize in database performance tuning, caching strategies (Redis), and event-driven design.</li>
-        <li>Earn backend certifications while delivering value within agile engineering teams.</li>
-      </ul>
-    </div>
-
-    <!-- Mission Statement & Professional Vision -->
-    <div class="card">
-      <h2>Mission & Vision</h2>
-      <p class="mission-statement">To engineer backend systems that are resilient, scalable, and empowering — turning data into reliable digital experiences.</p>
-      <p>My mission is to write backend code that prioritizes security, performance, and maintainability. I aim to join engineering teams where I can contribute to robust solutions — from e-commerce platforms to fintech APIs. My vision is to evolve into a trusted backend engineer who elevates system reliability, developer velocity, and product excellence.</p>
-      <hr />
-      <p class="focus-note"><strong>Current focus:</strong> Deepening knowledge of authentication patterns, caching mechanisms, and RESTful API best practices.</p>
-    </div>
-
-    <!-- Projects section -->
-    <div class="card">
-      <h2>Learning Projects</h2>
-      <p><strong>TaskFlow API</strong> — Task management REST API with JWT authentication and MongoDB. (Node.js, Express)</p>
-      <p><strong>Library System Backend</strong> — PostgreSQL database design with API endpoints for book management. (Python, FastAPI)</p>
-      <p><strong>URL Shortener</strong> — Caching with Redis and rate limiting. (In progress)</p>
-      <p class="project-note">Building foundational projects to strengthen backend engineering skills.</p>
-      <a class="btn" href="https://github.com/pius-kamau" target="_blank">
-        View GitHub Profile
-      </a>
-    </div>
-
-    <!-- GitHub & Collaboration -->
-    <div class="card">
-      <h2>GitHub & Collaboration</h2>
-      <p>I actively share backend code, write documentation, and practice test-driven development. My repositories reflect:</p>
-      <ul>
-        <li>Clean commit history and structured branching</li>
-        <li>API documentation basics using Markdown and Swagger</li>
-        <li>Unit testing with Jest and Pytest</li>
-      </ul>
-      <p class="collab-note">Open to collaborating on backend-focused open-source projects and learning from experienced developers.</p>
-      <a class="btn" href="https://github.com/pius-kamau" target="_blank" style="background:#2d5a2e;">
-        Explore my repositories
-      </a>
-    </div>
-
-    <!-- Contact -->
-    <div class="card">
-      <h2>Connect & Collaborate</h2>
-      <p><strong>Email:</strong> pius.kamau@backend.dev</p>
-      <p><strong>Open for:</strong> Junior backend roles, internships, freelance backend modules, and mentorship opportunities.</p>
-      <p><strong>Timezone:</strong> East Africa Time (EAT) — remote-friendly, collaborative, and responsive.</p>
-      <hr />
-      <p class="contact-note">I welcome technical discussions, code reviews, and backend challenges. Let's build systems that scale.</p>
-    </div>
-
-    <!-- Learning Roadmap & Growth -->
-    <div class="card">
-      <h2>Continuous Learning</h2>
-      <p>Topics and skills I am actively developing:</p>
-      <ul>
-        <li>Advanced Node.js: streams, clustering, and performance basics</li>
-        <li>PostgreSQL query optimization and database indexing</li>
-        <li>Container fundamentals: Docker and basic orchestration</li>
-        <li>GraphQL API development with Apollo Server</li>
-      </ul>
-      <div class="stack-icons" style="margin-top: 0.9rem;">
-        <span class="tech-tag">always learning</span>
-        <span class="tech-tag">backend craft</span>
-        <span class="tech-tag">clean code</span>
+      <div class="goals-grid">
+        <span class="goal-item">Build Real Projects</span>
+        <span class="goal-item">Open Source Contribution</span>
+        <span class="goal-item">Learn Backend Systems</span>
+        <span class="goal-item">Grow as a Developer</span>
       </div>
-    </div>
 
-  </section>
+    </section>
 
-  <footer>
-    <p>© 2026 Pius Kamau — Junior Backend Developer | Building robust, secure & scalable systems with professional integrity</p>
-    <p style="margin-top: 0.6rem; font-size:0.75rem;">Nairobi, Kenya | Mission-driven engineer | Focused on backend excellence</p>
-  </footer>
+    <section id="projects" class="projects-section">
 
-</div>
+      <h3>Projects</h3>
+
+      <div class="project">
+        <div>
+          <div class="project-title">Personal Portfolio Website</div>
+          <div class="project-desc">
+            A responsive portfolio website showcasing my skills,
+            projects, and development journey.
+          </div>
+        </div>
+
+        <div class="project-status">live</div>
+      </div>
+
+      <div class="project">
+        <div>
+          <div class="project-title">GitHub Learning Projects</div>
+          <div class="project-desc">
+            Various web development exercises and practice projects
+            built while learning frontend and backend development.
+          </div>
+        </div>
+
+        <div class="project-status">ongoing</div>
+      </div>
+
+      <div class="project">
+        <div>
+          <div class="project-title">Future Applications</div>
+          <div class="project-desc">
+            Planning and building more advanced web applications as my
+            skills continue to grow.
+          </div>
+        </div>
+
+        <div class="project-status">coming soon</div>
+      </div>
+
+    </section>
+
+    <section id="contact" class="contact-section">
+
+      <div class="contact-line">
+
+        <a href="https://github.com/pius-kamau"
+           target="_blank"
+           class="contact-link">
+           github.com/pius-kamau
+        </a>
+
+      </div>
+
+      <div class="availability">
+        Nairobi, Kenya • Open to collaborations, internships,
+        and junior developer opportunities.
+      </div>
+
+    </section>
+
+    <footer class="footer">
+      © 2026 Pius Kamau • Junior Web Developer
+    </footer>
+
+  </div>
 
 </body>
 </html>
+```
