@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +7,9 @@
   <title>Pius Kamau | Contact</title>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <style>
+  
+  </style>
 </head>
 <body>
   <div class="container">
@@ -31,29 +33,28 @@
       <div class="contact-card-main">
         <div class="contact-methods">
           <div class="contact-item">
-            <span class="contact-icon"></span>
+            <span class="contact-icon">✉️</span>
             <div>
               <div class="contact-label">Email</div>
               <a href="mailto:piusmwangi611@gmail.com" class="contact-value">piusmwangi611@gmail.com</a>
             </div>
           </div>
           <div class="contact-item">
-            <span class="contact-icon"></span>
+            <span class="contact-icon">🐙</span>
             <div>
               <div class="contact-label">GitHub</div>
               <a href="https://github.com/pius-kamau" target="_blank" class="contact-value">github.com/pius-kamau</a>
             </div>
           </div>
           <div class="contact-item">
-            <span class="contact-icon"></span>
+            <span class="contact-icon">💼</span>
             <div>
               <div class="contact-label">LinkedIn</div>
-              <a href="#" class="contact-value">linkedin.com/in/pius-kamau</a>
-              <span class="note">(coming soon)</span>
+              <a href="https://linkedin.com/in/pius-kamau" target="_blank" class="contact-value">linkedin.com/in/pius-kamau</a>
             </div>
           </div>
           <div class="contact-item">
-            <span class="contact-icon"></span>
+            <span class="contact-icon">📍</span>
             <div>
               <div class="contact-label">Location</div>
               <span class="contact-value">Nairobi, Kenya — UTC+3</span>
@@ -73,17 +74,17 @@
         <p class="response-text">I respond within 24–48 hours. Let's build something solid.</p>
       </div>
 
-      <div class="contact-form-container">
+      <div class="contact-form-container" id="contactFormContainer">
         <h3>Send a message</h3>
-        <form action="#" method="post">
+        <form id="contactForm" method="post">
           <div class="form-row">
-            <input type="text" placeholder="Your name" required />
-            <input type="email" placeholder="Email address" required />
+            <input type="text" id="userName" placeholder="Your name" required />
+            <input type="email" id="userEmail" placeholder="Email address" required />
           </div>
-          <textarea rows="4" placeholder="Tell me about your project or opportunity..."></textarea>
-          <button type="submit" class="submit-btn">Send message →</button>
-          <p class="form-note">(Demo form — please reach out via email directly for now.)</p>
+          <textarea id="userMessage" rows="4" placeholder="Tell me about your project or opportunity..." required></textarea>
+          <button type="submit" class="submit-btn" id="submitBtn">Send message →</button>
         </form>
+        <div id="successNotification" class="success-message hidden"></div>
       </div>
     </div>
 
@@ -92,5 +93,72 @@
       <p>© 2026</p>
     </div>
   </div>
+
+  <script>
+    (function() {
+      const form = document.getElementById('contactForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const successDiv = document.getElementById('successNotification');
+      const formContainer = document.getElementById('contactFormContainer');
+
+      // Remove any existing demo note if present (old HTML had it, but we ensure clean)
+      const oldNote = document.querySelector('.form-note');
+      if (oldNote) oldNote.remove();
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('userName').value.trim();
+        const email = document.getElementById('userEmail').value.trim();
+        const message = document.getElementById('userMessage').value.trim();
+        
+        // Basic validation
+        if (!name || !email || !message) {
+          alert('Please fill in all fields before sending.');
+          return;
+        }
+        
+        if (!email.includes('@') || !email.includes('.')) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+        
+        // Display success message
+        successDiv.innerHTML = `
+          <p>✓ Message sent successfully!</p>
+          <small>Thanks ${escapeHtml(name)} — Pius will be in touch with you shortly.</small>
+        `;
+        successDiv.classList.remove('hidden');
+        
+        // Disable form and button
+        form.classList.add('submitted-state');
+        submitBtn.disabled = true;
+        
+        // Optionally reset form fields (optional, but keeps UX clean)
+        form.reset();
+        
+        // Scroll success message into view smoothly
+        successDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        
+        // You can also send data to a backend endpoint here if needed.
+        // For now it's a client-side demo with visual feedback.
+        console.log('Message from:', name, email, message);
+      });
+      
+      // Simple escape function to prevent XSS
+      function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+          if (m === '&') return '&amp;';
+          if (m === '<') return '&lt;';
+          if (m === '>') return '&gt;';
+          return m;
+        }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+          return c;
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
