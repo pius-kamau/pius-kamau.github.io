@@ -1,0 +1,107 @@
+<!-- Projects page with all your work -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Backend projects by Pius Kamau — API development, authentication systems, and database design." />
+  <title>Pius Kamau | Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <a href="index.html" class="logo">Pius Kamau</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+
+    <div class="page-header">
+      <div class="role">code & systems</div>
+      <h1 class="page-title">Projects</h1>
+      <p class="page-subtitle">APIs, backend services, and tools I've built — each one taught me something valuable.</p>
+    </div>
+
+    <!-- Featured GitHub projects -->
+    <div class="projects-github">
+      <h3>Live projects</h3>
+      <div class="repo-list">
+        <div class="repo-card">
+          <a href="https://github.com/pius-kamau/biasharapro-api" target="_blank">BiasharaPro API →</a>
+          <p>Backend business management system with M-Pesa integration. Built with Node.js, Express, MongoDB. Handles inventory, sales tracking, and payment webhooks.</p>
+          <div class="tech-stack">
+            <span class="skill">Node.js</span>
+            <span class="skill">Express</span>
+            <span class="skill">MongoDB</span>
+            <span class="skill">M-Pesa API</span>
+          </div>
+        </div>
+
+        <div class="repo-card">
+          <a href="https://github.com/pius-kamau/unitus-voting-system" target="_blank">Unitus Voting System →</a>
+          <p>Full-stack voting system with secure authentication, real-time results, and audit logging. Backend handles vote encryption and user role management.</p>
+          <div class="tech-stack">
+            <span class="skill">Python</span>
+            <span class="skill">FastAPI</span>
+            <span class="skill">PostgreSQL</span>
+            <span class="skill">JWT</span>
+          </div>
+        </div>
+
+        <div class="repo-card">
+          <a href="https://github.com/pius-kamau/NETCORE-ISP" target="_blank">NETCORE ISP →</a>
+          <p>ISP management system built with TypeScript, Node.js. Manages client subscriptions, bandwidth allocation, and usage tracking.</p>
+          <div class="tech-stack">
+            <span class="skill">TypeScript</span>
+            <span class="skill">Node.js</span>
+            <span class="skill">PostgreSQL</span>
+            <span class="skill">Redis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Other backend projects -->
+    <div class="other-projects">
+      <h3>Backend experiments & tools</h3>
+      <div class="project-grid">
+        <div class="project-card-mini">
+          <div class="project-title">TaskFlow API</div>
+          <p>REST API with JWT authentication, role-based access control, task assignment, and pagination. MongoDB + Node.js.</p>
+          <span class="status-badge">completed</span>
+        </div>
+        <div class="project-card-mini">
+          <div class="project-title">Library Management System</div>
+          <p>PostgreSQL + FastAPI. Full CRUD for books, members, checkouts, returns, and fine calculation logic.</p>
+          <span class="status-badge">completed</span>
+        </div>
+        <div class="project-card-mini">
+          <div class="project-title">URL Shortener (learning)</div>
+          <p>Node.js + Redis. Explores caching strategies, rate limiting, and redirect analytics.</p>
+          <span class="status-badge in-progress">in progress</span>
+        </div>
+        <div class="project-card-mini">
+          <div class="project-title">Simple Message Queue</div>
+          <p>Custom implementation using Redis lists — learning broker fundamentals and worker patterns.</p>
+          <span class="status-badge in-progress">learning</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="github-cta">
+      <p>View all repositories on GitHub →</p>
+      <a href="https://github.com/pius-kamau" target="_blank" class="github-link">github.com/pius-kamau</a>
+    </div>
+
+    <div class="footer">
+      <p>Pius Kamau — backend developer. Nairobi, UTC+3</p>
+      <p>© 2026</p>
+    </div>
+  </div>
+</body>
+</html>
