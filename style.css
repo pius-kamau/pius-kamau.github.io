@@ -643,7 +643,47 @@ textarea:focus {
 .footer p {
   margin-bottom: 0.25rem;
 }
-
+ /* Additional styles for success message */
+    .success-message {
+      background: #1e382a;
+      border: 1px solid #86efac;
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      margin-top: 1rem;
+      text-align: center;
+      animation: fadeInUp 0.4s ease;
+    }
+    .success-message p {
+      color: #86efac;
+      font-weight: 500;
+      margin: 0 0 0.25rem 0;
+      font-size: 1rem;
+    }
+    .success-message small {
+      color: #9ca3af;
+      font-size: 0.75rem;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .hidden {
+      display: none;
+    }
+    .contact-form-container form.submitted-state {
+      pointer-events: none;
+      opacity: 0.6;
+    }
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
 /* Responsive Design */
 @media (max-width: 768px) {
   .container {
