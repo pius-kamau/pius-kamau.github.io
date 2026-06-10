@@ -1,4 +1,4 @@
-
+/* style.css - Shared styles for all pages */
 * {
   margin: 0;
   padding: 0;
@@ -36,16 +36,16 @@ body::before {
   z-index: 1;
 }
 
-/* Header & Navigation */
+/* Header & Navigation with Hamburger */
 .header {
-  margin-bottom: 4rem;
-  border-bottom: 1px solid #2a2f33;
-  padding-bottom: 1.2rem;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  border-bottom: 1px solid #2a2f33;
+  padding-bottom: 1.2rem;
+  margin-bottom: 3rem;
+  position: relative;
 }
 
 .logo {
@@ -56,16 +56,18 @@ body::before {
   color: #e5e7eb;
   text-decoration: none;
   transition: color 0.2s;
+  z-index: 101;
 }
 
 .logo:hover {
   color: #86efac;
 }
 
+/* Desktop Navigation */
 .nav-links {
   display: flex;
   gap: 2rem;
-  flex-wrap: wrap;
+  align-items: center;
 }
 
 .nav-links a {
@@ -83,7 +85,90 @@ body::before {
   border-bottom: 2px solid #86efac;
 }
 
-/* Hero Section (Home) */
+/* Hamburger Button (hidden on desktop) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 101;
+  background: transparent;
+  border: none;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 2px;
+  background-color: #e5e7eb;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Mobile Navigation Overlay */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.2rem;
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 280px;
+    height: 100vh;
+    background: #11171c;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transition: right 0.3s ease;
+    z-index: 100;
+    border-left: 1px solid #2a2f33;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .nav-links.active {
+    right: 0;
+  }
+  
+  .nav-links a {
+    font-size: 1.1rem;
+    padding: 0.5rem;
+  }
+  
+  /* Overlay background */
+  body.menu-open::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 99;
+  }
+}
+
+/* Hero Section */
 .hero {
   margin-bottom: 4rem;
 }
@@ -112,7 +197,7 @@ body::before {
   line-height: 1.6;
 }
 
-/* Page Header (About, Projects, Contact) */
+/* Page Header */
 .page-header {
   margin-bottom: 3rem;
 }
@@ -132,7 +217,7 @@ body::before {
   line-height: 1.6;
 }
 
-/* Two Column Layout (Home & About) */
+/* Two Column Layout */
 .two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -181,7 +266,7 @@ body::before {
   color: #86efac;
 }
 
-/* Mission Block (Home & About) */
+/* Mission Block */
 .mission-block {
   background: #111417;
   border: 1px solid #2a2f33;
@@ -223,7 +308,7 @@ body::before {
   transform: translateY(-2px);
 }
 
-/* Featured Projects (Home) */
+/* Featured Projects */
 .featured-projects {
   margin: 2rem 0;
 }
@@ -272,14 +357,13 @@ body::before {
   border-radius: 20px;
 }
 
-/* Projects Page Specific */
+/* Projects Page */
 .projects-github h3,
 .other-projects h3 {
   font-family: 'Instrument Serif', serif;
   font-size: 1.6rem;
   font-weight: 400;
   margin-bottom: 1.5rem;
-  letter-spacing: -0.3px;
 }
 
 .repo-list {
@@ -308,7 +392,6 @@ body::before {
   text-decoration: none;
   font-size: 1.15rem;
   font-weight: 600;
-  transition: color 0.2s;
   display: inline-block;
   margin-bottom: 0.5rem;
 }
@@ -369,7 +452,6 @@ body::before {
   border-radius: 30px;
   margin-top: 0.6rem;
   color: #86efac;
-  letter-spacing: 0.3px;
 }
 
 .status-badge.in-progress {
@@ -384,18 +466,11 @@ body::before {
   background: #111417;
   border: 1px solid #2a2f33;
   border-radius: 48px;
-  transition: all 0.2s;
-}
-
-.github-cta:hover {
-  border-color: #86efac;
-  background: #151a1e;
 }
 
 .github-cta p {
   margin-bottom: 0.5rem;
   color: #9ca3af;
-  font-size: 0.9rem;
 }
 
 .github-link {
@@ -403,7 +478,6 @@ body::before {
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
-  transition: color 0.2s;
 }
 
 .github-link:hover {
@@ -411,7 +485,7 @@ body::before {
   text-decoration: underline;
 }
 
-/* About Page Specific */
+/* About Page */
 .about-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -431,7 +505,6 @@ body::before {
   color: #e5e7eb;
   margin-bottom: 1rem;
   font-weight: 500;
-  line-height: 1.6;
 }
 
 .principles-list {
@@ -457,7 +530,6 @@ body::before {
   border-radius: 20px;
   padding: 1.2rem;
   margin-bottom: 1.2rem;
-  transition: all 0.2s;
 }
 
 .info-card:hover {
@@ -469,7 +541,7 @@ body::before {
   font-size: 0.9rem;
 }
 
-/* Contact Page Specific */
+/* Contact Page */
 .contact-container {
   display: flex;
   flex-direction: column;
@@ -520,18 +592,11 @@ body::before {
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
-  transition: color 0.2s;
 }
 
 .contact-value:hover {
   color: #a8f0c5;
   text-decoration: underline;
-}
-
-.note {
-  font-size: 0.7rem;
-  color: #6b7280;
-  margin-left: 0.5rem;
 }
 
 .availability-box {
@@ -623,11 +688,45 @@ textarea:focus {
   transform: translateY(-2px);
 }
 
-.form-note {
-  font-size: 0.7rem;
-  color: #6b7280;
-  margin-top: 0.8rem;
+.success-message {
+  background: #1e382a;
+  border: 1px solid #86efac;
+  border-radius: 16px;
+  padding: 1rem;
+  margin-top: 1rem;
   text-align: center;
+  animation: fadeInUp 0.4s ease;
+}
+
+.success-message p {
+  color: #86efac;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.success-message small {
+  color: #9ca3af;
+  font-size: 0.75rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.submitted-state {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Footer */
@@ -643,51 +742,11 @@ textarea:focus {
 .footer p {
   margin-bottom: 0.25rem;
 }
- /* Additional styles for success message */
-    .success-message {
-      background: #1e382a;
-      border: 1px solid #86efac;
-      border-radius: 16px;
-      padding: 1rem 1.2rem;
-      margin-top: 1rem;
-      text-align: center;
-      animation: fadeInUp 0.4s ease;
-    }
-    .success-message p {
-      color: #86efac;
-      font-weight: 500;
-      margin: 0 0 0.25rem 0;
-      font-size: 1rem;
-    }
-    .success-message small {
-      color: #9ca3af;
-      font-size: 0.75rem;
-    }
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    .hidden {
-      display: none;
-    }
-    .contact-form-container form.submitted-state {
-      pointer-events: none;
-      opacity: 0.6;
-    }
-    .submit-btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-/* Responsive Design */
+
+/* Responsive */
 @media (max-width: 768px) {
   .container {
-    padding: 1.5rem;
+    padding: 1.2rem;
   }
   
   .hero h1 {
@@ -704,30 +763,12 @@ textarea:focus {
     gap: 2rem;
   }
   
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-  
-  .nav-links {
-    gap: 1.5rem;
-  }
-  
   .form-row {
     grid-template-columns: 1fr;
   }
   
   .project-grid {
     grid-template-columns: 1fr;
-  }
-  
-  .repo-card:hover {
-    transform: translateX(0);
-  }
-  
-  .repo-card {
-    padding: 1.2rem;
   }
 }
 
@@ -738,10 +779,5 @@ textarea:focus {
   
   .hero h1 {
     font-size: 1.8rem;
-  }
-  
-  .projects-github h3,
-  .other-projects h3 {
-    font-size: 1.3rem;
   }
 }
