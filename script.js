@@ -1,20 +1,24 @@
-// script.js - Hamburger menu and contact form handling
+//  - Hamburger menu and contact form handling 
 document.addEventListener('DOMContentLoaded', function() {
   // ===== HAMBURGER MENU =====
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
   
   if (hamburger && navLinks) {
-    hamburger.addEventListener('click', function() {
+    // Toggle menu when hamburger is clicked
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation();
       hamburger.classList.toggle('active');
       navLinks.classList.toggle('active');
       document.body.classList.toggle('menu-open');
     });
     
-    // Close menu when clicking on a link
+    // Close menu when clicking on any navigation link
     const links = navLinks.querySelectorAll('a');
     links.forEach(link => {
-      link.addEventListener('click', function() {
+      link.addEventListener('click', function(e) {
+        // Allow the link to navigate normally
+        // Just close the menu before navigation
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
         document.body.classList.remove('menu-open');
@@ -24,12 +28,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close menu when clicking outside on mobile
     document.addEventListener('click', function(event) {
       if (window.innerWidth <= 768) {
-        const isClickInside = navLinks.contains(event.target) || hamburger.contains(event.target);
-        if (!isClickInside && navLinks.classList.contains('active')) {
+        const isClickInsideNav = navLinks.contains(event.target);
+        const isClickOnHamburger = hamburger.contains(event.target);
+        
+        if (!isClickInsideNav && !isClickOnHamburger && navLinks.classList.contains('active')) {
           hamburger.classList.remove('active');
           navLinks.classList.remove('active');
           document.body.classList.remove('menu-open');
         }
+      }
+    });
+    
+    // Prevent body scroll when menu is open
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.body.classList.remove('menu-open');
       }
     });
   }
