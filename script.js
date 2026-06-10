@@ -1,4 +1,4 @@
-// Hamburger menu 
+
 document.addEventListener('DOMContentLoaded', function() {
   // ===== HAMBURGER MENU =====
   const hamburger = document.getElementById('hamburger');
@@ -41,11 +41,21 @@ document.addEventListener('DOMContentLoaded', function() {
       closeMenu();
     });
     
-    // Close menu when clicking on any nav link
+    // Handle navigation links - THIS IS THE KEY FIX
     const links = navLinks.querySelectorAll('a');
     links.forEach(link => {
-      link.addEventListener('click', function() {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        // Close the menu first
         closeMenu();
+        // Then navigate to the link
+        if (href && !href.startsWith('#')) {
+          setTimeout(function() {
+            window.location.href = href;
+          }, 150);
+        } else if (href === '#') {
+          e.preventDefault();
+        }
       });
     });
     
