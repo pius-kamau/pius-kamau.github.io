@@ -1,4 +1,4 @@
-/* style.css */
+/* style.css - Updated with menu fixes and restored animations */
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +12,7 @@ body {
   line-height: 1.5;
 }
 
+/* Grid background */
 body::before {
   content: '';
   position: fixed;
@@ -19,7 +20,9 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(rgba(80, 100, 80, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(80, 100, 80, 0.06) 1px, transparent 1px);
+  background-image: 
+    linear-gradient(rgba(80, 100, 80, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(80, 100, 80, 0.06) 1px, transparent 1px);
   background-size: 50px 50px;
   pointer-events: none;
   z-index: 0;
@@ -33,6 +36,7 @@ body::before {
   z-index: 1;
 }
 
+/* Header */
 .header {
   display: flex;
   justify-content: space-between;
@@ -40,6 +44,7 @@ body::before {
   border-bottom: 1px solid #2a2f33;
   padding-bottom: 1.2rem;
   margin-bottom: 3rem;
+  position: relative;
 }
 
 .logo {
@@ -48,12 +53,14 @@ body::before {
   font-weight: 400;
   color: #e5e7eb;
   text-decoration: none;
+  transition: color 0.2s;
 }
 
 .logo:hover {
   color: #86efac;
 }
 
+/* Desktop Navigation */
 .nav-links {
   display: flex;
   gap: 2rem;
@@ -75,6 +82,7 @@ body::before {
   border-bottom: 2px solid #86efac;
 }
 
+/* Hamburger Button */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -107,6 +115,7 @@ body::before {
   transform: translateY(-9px) rotate(-45deg);
 }
 
+/* Mobile Navigation - NO OVERLAY, CLOSER TO TOP */
 @media (max-width: 768px) {
   .container {
     padding: 1rem;
@@ -118,44 +127,48 @@ body::before {
   
   .nav-links {
     position: fixed;
-    top: 0;
-    right: -100%;
-    width: 280px;
-    height: 100vh;
+    top: 70px;
+    right: -280px;
+    width: 260px;
     background: #0f1214;
     flex-direction: column;
-    justify-content: center;
-    gap: 2rem;
-    transition: right 0.3s ease;
+    gap: 0.5rem;
+    transition: right 0.3s ease-in-out;
     z-index: 1000;
-    border-left: 1px solid #2a2f33;
-    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.8);
-    padding: 2rem;
+    border: 1px solid #2a2f33;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    padding: 1rem;
   }
   
   .nav-links.active {
-    right: 0;
+    right: 1rem;
   }
   
   .nav-links a {
-    font-size: 1.2rem;
+    font-size: 1rem;
     width: 100%;
-    text-align: center;
-    padding: 0.75rem;
+    text-align: left;
+    padding: 0.75rem 1rem;
     display: block;
+    border-radius: 8px;
   }
   
   .nav-links a:hover,
   .nav-links a.active {
     background: rgba(134, 239, 172, 0.1);
-    border-radius: 8px;
     border-bottom: none;
+  }
+  
+  body.menu-open {
+    overflow: hidden;
   }
 }
 
 /* Hero Section */
 .hero {
   margin-bottom: 4rem;
+  animation: fadeInUp 0.6s ease-out;
 }
 
 .role {
@@ -164,6 +177,7 @@ body::before {
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 1rem;
+  animation: fadeInUp 0.6s ease-out 0.1s both;
 }
 
 .hero h1 {
@@ -173,17 +187,20 @@ body::before {
   line-height: 1.2;
   margin-bottom: 1.5rem;
   max-width: 750px;
+  animation: fadeInUp 0.6s ease-out 0.2s both;
 }
 
 .hero p {
   color: #9ca3af;
   font-size: 1.1rem;
   max-width: 580px;
+  animation: fadeInUp 0.6s ease-out 0.3s both;
 }
 
 /* Page Header */
 .page-header {
   margin-bottom: 3rem;
+  animation: fadeInUp 0.5s ease-out;
 }
 
 .page-title {
@@ -204,6 +221,7 @@ body::before {
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   margin-bottom: 3rem;
+  animation: fadeInUp 0.5s ease-out 0.1s both;
 }
 
 .section-label {
@@ -224,6 +242,7 @@ body::before {
   margin-bottom: 1rem;
 }
 
+/* Skills */
 .skills-list {
   display: flex;
   flex-wrap: wrap;
@@ -237,14 +256,29 @@ body::before {
   font-size: 0.72rem;
   color: #cbd5e1;
   border: 1px solid #2a2f33;
+  transition: all 0.2s;
 }
 
+.skill:hover {
+  border-color: #86efac;
+  color: #86efac;
+  transform: translateY(-2px);
+}
+
+/* Mission Block */
 .mission-block {
   background: #111417;
   border: 1px solid #2a2f33;
   border-radius: 24px;
   padding: 2rem;
   margin: 1.5rem 0 2.5rem;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.5s ease-out 0.2s both;
+}
+
+.mission-block:hover {
+  transform: translateY(-4px);
+  border-color: #86efac;
 }
 
 .mission-block h3 {
@@ -252,6 +286,11 @@ body::before {
   font-size: 1.5rem;
   font-weight: 400;
   margin-bottom: 0.8rem;
+}
+
+.mission-block p {
+  color: #9ca3af;
+  line-height: 1.6;
 }
 
 .goals-grid {
@@ -267,10 +306,18 @@ body::before {
   border-radius: 40px;
   font-size: 0.8rem;
   border: 1px solid #2a2f33;
+  transition: all 0.2s;
 }
 
+.goal-item:hover {
+  border-color: #86efac;
+  transform: translateY(-2px);
+}
+
+/* Featured Projects */
 .featured-projects {
   margin: 2rem 0;
+  animation: fadeInUp 0.5s ease-out 0.3s both;
 }
 
 .featured-projects h3 {
@@ -287,6 +334,12 @@ body::before {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  transition: all 0.2s;
+}
+
+.project-item:hover {
+  background: rgba(134, 239, 172, 0.03);
+  padding-left: 0.5rem;
 }
 
 .project-title {
@@ -321,6 +374,13 @@ body::before {
   border: 1px solid #2a2f33;
   border-radius: 24px;
   padding: 1.5rem;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.repo-card:hover {
+  transform: translateX(6px);
+  border-color: #86efac;
 }
 
 .repo-card a {
@@ -328,6 +388,12 @@ body::before {
   text-decoration: none;
   font-size: 1.15rem;
   font-weight: 600;
+  transition: color 0.2s;
+}
+
+.repo-card a:hover {
+  color: #a8f0c5;
+  text-decoration: underline;
 }
 
 .repo-card p {
@@ -350,6 +416,12 @@ body::before {
   background: #111417;
   border: 1px solid #2a2f33;
   border-radius: 48px;
+  transition: all 0.3s ease;
+}
+
+.github-cta:hover {
+  border-color: #86efac;
+  transform: scale(1.02);
 }
 
 .github-link {
@@ -365,6 +437,13 @@ body::before {
   padding: 1.8rem;
   border: 1px solid #2a2f33;
   margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.bio-card:hover {
+  transform: translateY(-4px);
+  border-color: #86efac;
 }
 
 .lead {
@@ -383,6 +462,12 @@ body::before {
   border-bottom: 1px solid #23282e;
   font-size: 0.9rem;
   color: #cbd5e1;
+  transition: all 0.2s;
+}
+
+.principle:hover {
+  transform: translateX(5px);
+  color: #86efac;
 }
 
 /* Contact Page */
@@ -392,6 +477,13 @@ body::before {
   border-radius: 28px;
   padding: 2rem;
   margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.contact-card-main:hover {
+  transform: translateY(-4px);
+  border-color: #86efac;
 }
 
 .contact-methods {
@@ -404,6 +496,14 @@ body::before {
   display: flex;
   gap: 1rem;
   align-items: center;
+  padding: 0.5rem;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+
+.contact-item:hover {
+  background: rgba(134, 239, 172, 0.05);
+  transform: translateX(5px);
 }
 
 .contact-icon {
@@ -423,12 +523,18 @@ body::before {
   font-weight: 500;
 }
 
+.contact-value:hover {
+  text-decoration: underline;
+}
+
 .availability-box {
   background: #111417;
   border-radius: 24px;
   padding: 1.5rem;
   border-left: 3px solid #86efac;
   margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.5s ease-out 0.1s both;
 }
 
 .availability-list {
@@ -443,6 +549,12 @@ body::before {
   border-radius: 24px;
   padding: 1.8rem;
   border: 1px solid #2a2f33;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.5s ease-out 0.2s both;
+}
+
+.contact-form-container:hover {
+  border-color: #86efac;
 }
 
 .form-row {
@@ -459,6 +571,13 @@ input, textarea {
   border-radius: 12px;
   color: #e5e7eb;
   font-family: inherit;
+  transition: all 0.2s;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #86efac;
+  transform: scale(1.01);
 }
 
 .submit-btn {
@@ -470,6 +589,12 @@ input, textarea {
   margin-top: 1rem;
   cursor: pointer;
   font-weight: 600;
+  transition: all 0.2s;
+}
+
+.submit-btn:hover {
+  background: #a8f0c5;
+  transform: translateY(-2px);
 }
 
 .success-message {
@@ -479,12 +604,14 @@ input, textarea {
   padding: 1rem;
   margin-top: 1rem;
   text-align: center;
+  animation: fadeInUp 0.4s ease;
 }
 
 .hidden {
   display: none;
 }
 
+/* Footer */
 .footer {
   border-top: 1px solid #2a2f33;
   margin-top: 3rem;
@@ -498,6 +625,19 @@ input, textarea {
   margin-bottom: 0.25rem;
 }
 
+/* Animation Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .hero h1 { font-size: 2rem; }
   .page-title { font-size: 2rem; }
