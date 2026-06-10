@@ -1,4 +1,4 @@
-/* style.css*/
+/* style.css */
 * {
   margin: 0;
   padding: 0;
@@ -171,7 +171,7 @@ body::before {
 @keyframes scaleIn {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.9);
   }
   to {
     opacity: 1;
@@ -179,55 +179,19 @@ body::before {
   }
 }
 
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
+@keyframes growPulse {
+  0% {
+    transform: scale(1);
   }
-  to {
-    opacity: 1;
-    transform: translateX(0);
+  50% {
+    transform: scale(1.03);
   }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
+  100% {
+    transform: scale(1);
   }
 }
 
-/* Scroll Animation Classes - elements start hidden */
-.scroll-animate {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.scroll-animate.fade-in-up {
-  animation: fadeInUp 0.6s ease forwards;
-  visibility: visible;
-}
-
-.scroll-animate.scale-in {
-  animation: scaleIn 0.5s ease forwards;
-  visibility: visible;
-}
-
-.scroll-animate.slide-left {
-  animation: slideInLeft 0.5s ease forwards;
-  visibility: visible;
-}
-
-.scroll-animate.slide-right {
-  animation: slideInRight 0.5s ease forwards;
-  visibility: visible;
-}
-
-/* Hero Section - immediate animation */
+/* Hero Section */
 .hero {
   margin-bottom: 4rem;
   animation: fadeInUp 0.6s ease-out forwards;
@@ -332,6 +296,11 @@ body::before {
   transform: translateY(-3px) scale(1.05);
 }
 
+/* Active tap effect for mobile */
+.skill:active {
+  transform: scale(0.95);
+}
+
 /* Mission Block */
 .mission-block {
   background: #111417;
@@ -346,6 +315,10 @@ body::before {
   transform: translateY(-6px) scale(1.01);
   border-color: #86efac;
   box-shadow: 0 10px 30px rgba(134, 239, 172, 0.1);
+}
+
+.mission-block:active {
+  transform: scale(0.99);
 }
 
 .mission-block h3 {
@@ -384,6 +357,10 @@ body::before {
   background: rgba(134, 239, 172, 0.1);
 }
 
+.goal-item:active {
+  transform: scale(0.95);
+}
+
 /* Featured Projects */
 .featured-projects {
   margin: 2rem 0;
@@ -413,6 +390,10 @@ body::before {
   transform: scale(1.01);
 }
 
+.project-item:active {
+  transform: scale(0.99);
+}
+
 .project-title {
   font-weight: 600;
   color: #e5e7eb;
@@ -438,7 +419,7 @@ body::before {
   background: #2a3a2f;
 }
 
-/* Projects Page - Repo Cards */
+/* Projects Page  */
 .repo-list {
   display: flex;
   flex-direction: column;
@@ -459,6 +440,10 @@ body::before {
   transform: translateX(8px) scale(1.02);
   border-color: #86efac;
   box-shadow: 0 8px 25px rgba(134, 239, 172, 0.15);
+}
+
+.repo-card:active {
+  transform: scale(0.98);
 }
 
 .repo-card a {
@@ -511,6 +496,10 @@ body::before {
   box-shadow: 0 10px 25px rgba(134, 239, 172, 0.1);
 }
 
+.project-card-mini:active {
+  transform: scale(0.98);
+}
+
 .project-card-mini p {
   font-size: 0.8rem;
   color: #9ca3af;
@@ -555,6 +544,10 @@ body::before {
   box-shadow: 0 5px 20px rgba(134, 239, 172, 0.1);
 }
 
+.github-cta:active {
+  transform: scale(0.98);
+}
+
 .github-link {
   color: #86efac;
   text-decoration: none;
@@ -585,6 +578,10 @@ body::before {
   box-shadow: 0 10px 25px rgba(134, 239, 172, 0.1);
 }
 
+.bio-card:active {
+  transform: scale(0.99);
+}
+
 .lead {
   font-size: 1.05rem;
   color: #e5e7eb;
@@ -610,6 +607,10 @@ body::before {
   color: #86efac;
 }
 
+.principle:active {
+  transform: scale(0.99);
+}
+
 /* Contact Page */
 .contact-card-main {
   background: #111417;
@@ -624,6 +625,10 @@ body::before {
   transform: translateY(-5px) scale(1.01);
   border-color: #86efac;
   box-shadow: 0 10px 25px rgba(134, 239, 172, 0.1);
+}
+
+.contact-card-main:active {
+  transform: scale(0.99);
 }
 
 .contact-methods {
@@ -645,6 +650,10 @@ body::before {
 .contact-item:hover {
   background: rgba(134, 239, 172, 0.05);
   transform: translateX(8px) scale(1.01);
+}
+
+.contact-item:active {
+  transform: scale(0.98);
 }
 
 .contact-icon {
@@ -690,6 +699,10 @@ body::before {
   box-shadow: 0 5px 20px rgba(134, 239, 172, 0.1);
 }
 
+.availability-box:active {
+  transform: scale(0.99);
+}
+
 .availability-list {
   display: flex;
   flex-direction: column;
@@ -709,6 +722,10 @@ body::before {
   transform: translateY(-4px) scale(1.01);
   border-color: #86efac;
   box-shadow: 0 10px 25px rgba(134, 239, 172, 0.1);
+}
+
+.contact-form-container:active {
+  transform: scale(0.99);
 }
 
 .form-row {
@@ -752,6 +769,10 @@ input:focus, textarea:focus {
   box-shadow: 0 5px 15px rgba(134, 239, 172, 0.3);
 }
 
+.submit-btn:active {
+  transform: scale(0.98);
+}
+
 .success-message {
   background: #1e382a;
   border: 1px solid #86efac;
@@ -779,6 +800,18 @@ input:focus, textarea:focus {
   margin-bottom: 0.25rem;
 }
 
+/* SCROLL ANIMATIONS  */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: all 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .container {
@@ -800,5 +833,28 @@ input:focus, textarea:focus {
   
   .form-row {
     grid-template-columns: 1fr;
+  }
+  
+  .skill, .goal-item, .repo-card, .project-card-mini, .contact-item {
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  
+  .skill:active, .goal-item:active, .repo-card:active, .project-card-mini:active, .contact-item:active {
+    transform: scale(0.97);
+    background: rgba(134, 239, 172, 0.05);
+  }
+  
+  .submit-btn:active {
+    transform: scale(0.96);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+  
+  .page-title {
+    font-size: 1.6rem;
   }
 }
