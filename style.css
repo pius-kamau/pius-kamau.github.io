@@ -1,4 +1,4 @@
-/* style.css */
+/* style.css*/
 * {
   margin: 0;
   padding: 0;
@@ -160,7 +160,7 @@ body::before {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -168,7 +168,66 @@ body::before {
   }
 }
 
-/* Hero Section */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scroll Animation Classes - elements start hidden */
+.scroll-animate {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.scroll-animate.fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+  visibility: visible;
+}
+
+.scroll-animate.scale-in {
+  animation: scaleIn 0.5s ease forwards;
+  visibility: visible;
+}
+
+.scroll-animate.slide-left {
+  animation: slideInLeft 0.5s ease forwards;
+  visibility: visible;
+}
+
+.scroll-animate.slide-right {
+  animation: slideInRight 0.5s ease forwards;
+  visibility: visible;
+}
+
+/* Hero Section - immediate animation */
 .hero {
   margin-bottom: 4rem;
   animation: fadeInUp 0.6s ease-out forwards;
@@ -208,7 +267,6 @@ body::before {
 
 .page-header {
   margin-bottom: 3rem;
-  animation: fadeInUp 0.5s ease-out forwards;
 }
 
 .page-title {
@@ -229,9 +287,6 @@ body::before {
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   margin-bottom: 3rem;
-  animation: fadeInUp 0.5s ease-out 0.1s forwards;
-  opacity: 0;
-  animation-fill-mode: forwards;
 }
 
 .section-label {
@@ -252,7 +307,7 @@ body::before {
   margin-bottom: 1rem;
 }
 
-/* Skills - Hover Effect */
+/* Skills */
 .skills-list {
   display: flex;
   flex-wrap: wrap;
@@ -266,7 +321,7 @@ body::before {
   font-size: 0.72rem;
   color: #cbd5e1;
   border: 1px solid #2a2f33;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
   display: inline-block;
 }
@@ -277,7 +332,7 @@ body::before {
   transform: translateY(-3px) scale(1.05);
 }
 
-/* Mission Block - Hover Effect */
+/* Mission Block */
 .mission-block {
   background: #111417;
   border: 1px solid #2a2f33;
@@ -285,9 +340,6 @@ body::before {
   padding: 2rem;
   margin: 1.5rem 0 2.5rem;
   transition: all 0.3s ease;
-  animation: fadeInUp 0.5s ease-out 0.2s forwards;
-  opacity: 0;
-  animation-fill-mode: forwards;
 }
 
 .mission-block:hover {
@@ -315,14 +367,13 @@ body::before {
   margin-top: 1.2rem;
 }
 
-/* Goal Items - Hover Effect */
 .goal-item {
   background: #1a1f24;
   padding: 0.4rem 1rem;
   border-radius: 40px;
   font-size: 0.8rem;
   border: 1px solid #2a2f33;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
   display: inline-block;
 }
@@ -333,12 +384,9 @@ body::before {
   background: rgba(134, 239, 172, 0.1);
 }
 
-/* Featured Projects - Hover Effect */
+/* Featured Projects */
 .featured-projects {
   margin: 2rem 0;
-  animation: fadeInUp 0.5s ease-out 0.3s forwards;
-  opacity: 0;
-  animation-fill-mode: forwards;
 }
 
 .featured-projects h3 {
@@ -355,7 +403,7 @@ body::before {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
 }
 
@@ -390,7 +438,7 @@ body::before {
   background: #2a3a2f;
 }
 
-/* Projects Page - Repo Cards Hover Effect */
+/* Projects Page - Repo Cards */
 .repo-list {
   display: flex;
   flex-direction: column;
@@ -404,15 +452,8 @@ body::before {
   border-radius: 24px;
   padding: 1.5rem;
   transition: all 0.3s ease;
-  animation: fadeInUp 0.4s ease-out forwards;
-  opacity: 0;
-  animation-fill-mode: forwards;
   cursor: pointer;
 }
-
-.repo-card:nth-child(1) { animation-delay: 0.1s; }
-.repo-card:nth-child(2) { animation-delay: 0.2s; }
-.repo-card:nth-child(3) { animation-delay: 0.3s; }
 
 .repo-card:hover {
   transform: translateX(8px) scale(1.02);
@@ -447,7 +488,7 @@ body::before {
   margin-top: 0.5rem;
 }
 
-/* Project Cards Mini - Hover Effect */
+/* Project Cards Mini */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -496,7 +537,7 @@ body::before {
   color: #c9e49a;
 }
 
-/* GitHub CTA - Hover Effect */
+/* GitHub CTA */
 .github-cta {
   text-align: center;
   margin: 2rem 0;
@@ -505,9 +546,6 @@ body::before {
   border: 1px solid #2a2f33;
   border-radius: 48px;
   transition: all 0.3s ease;
-  animation: fadeInUp 0.5s ease-out 0.4s forwards;
-  opacity: 0;
-  animation-fill-mode: forwards;
   cursor: pointer;
 }
 
@@ -530,7 +568,7 @@ body::before {
   text-decoration: underline;
 }
 
-/* About Page - Bio Card Hover */
+/* About Page */
 .bio-card {
   background: #111417;
   border-radius: 24px;
@@ -538,9 +576,6 @@ body::before {
   border: 1px solid #2a2f33;
   margin-bottom: 2rem;
   transition: all 0.3s ease;
-  animation: fadeInUp 0.5s ease-out forwards;
-  opacity: 0;
-  animation-fill-mode: forwards;
   cursor: pointer;
 }
 
@@ -561,13 +596,12 @@ body::before {
   margin-top: 1rem;
 }
 
-/* Principle Items - Hover Effect */
 .principle {
   padding: 0.8rem 0;
   border-bottom: 1px solid #23282e;
   font-size: 0.9rem;
   color: #cbd5e1;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
 }
 
@@ -576,7 +610,7 @@ body::before {
   color: #86efac;
 }
 
-/* Contact Page - Cards Hover */
+/* Contact Page */
 .contact-card-main {
   background: #111417;
   border: 1px solid #2a2f33;
@@ -584,9 +618,6 @@ body::before {
   padding: 2rem;
   margin-bottom: 2rem;
   transition: all 0.3s ease;
-  animation: fadeInUp 0.5s ease-out forwards;
-  opacity: 0;
-  animation-fill-mode: forwards;
 }
 
 .contact-card-main:hover {
@@ -601,14 +632,13 @@ body::before {
   gap: 1.5rem;
 }
 
-/* Contact Items - Hover Effect */
 .contact-item {
   display: flex;
   gap: 1rem;
   align-items: center;
   padding: 0.5rem;
   border-radius: 12px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
 }
 
@@ -646,7 +676,6 @@ body::before {
   text-decoration: underline;
 }
 
-/* Availability Box - Hover Effect */
 .availability-box {
   background: #111417;
   border-radius: 24px;
@@ -654,9 +683,6 @@ body::before {
   border-left: 3px solid #86efac;
   margin-bottom: 2rem;
   transition: all 0.3s ease;
-  animation: fadeInUp 0.5s ease-out 0.1s forwards;
-  opacity: 0;
-  animation-fill-mode: forwards;
 }
 
 .availability-box:hover {
@@ -671,16 +697,12 @@ body::before {
   margin: 1rem 0;
 }
 
-/* Contact Form - Hover Effect */
 .contact-form-container {
   background: #111417;
   border-radius: 24px;
   padding: 1.8rem;
   border: 1px solid #2a2f33;
   transition: all 0.3s ease;
-  animation: fadeInUp 0.5s ease-out 0.2s forwards;
-  opacity: 0;
-  animation-fill-mode: forwards;
 }
 
 .contact-form-container:hover {
@@ -696,7 +718,6 @@ body::before {
   margin-bottom: 1rem;
 }
 
-/* Form Inputs - Focus Effect */
 input, textarea {
   background: #1a1f24;
   border: 1px solid #2a2f33;
@@ -713,7 +734,6 @@ input:focus, textarea:focus {
   transform: scale(1.01);
 }
 
-/* Submit Button - Hover Effect */
 .submit-btn {
   background: #86efac;
   color: #0f1214;
@@ -746,7 +766,6 @@ input:focus, textarea:focus {
   display: none;
 }
 
-/* Footer */
 .footer {
   border-top: 1px solid #2a2f33;
   margin-top: 3rem;
@@ -781,24 +800,5 @@ input:focus, textarea:focus {
   
   .form-row {
     grid-template-columns: 1fr;
-  }
-  
-  /* Keep hover effects on mobile (they work as tap/click feedback) */
-  .skill:hover,
-  .goal-item:hover,
-  .repo-card:hover,
-  .project-card-mini:hover,
-  .contact-item:hover {
-    transform: translateY(-3px) scale(1.02);
-  }
-}
-
-@media (max-width: 480px) {
-  .hero h1 {
-    font-size: 1.6rem;
-  }
-  
-  .page-title {
-    font-size: 1.6rem;
   }
 }
