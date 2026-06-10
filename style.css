@@ -1,4 +1,4 @@
-/* style.css  */
+/* style.css */
 * {
   margin: 0;
   padding: 0;
@@ -49,7 +49,7 @@ body::before {
   font-weight: 400;
   color: #e5e7eb;
   text-decoration: none;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 
 .logo:hover {
@@ -68,7 +68,7 @@ body::before {
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   padding: 0.2rem 0;
 }
 
@@ -252,7 +252,7 @@ body::before {
   margin-bottom: 1rem;
 }
 
-/* Skills */
+/* Skills - Hover Effect */
 .skills-list {
   display: flex;
   flex-wrap: wrap;
@@ -268,6 +268,7 @@ body::before {
   border: 1px solid #2a2f33;
   transition: all 0.2s ease;
   cursor: pointer;
+  display: inline-block;
 }
 
 .skill:hover {
@@ -276,7 +277,7 @@ body::before {
   transform: translateY(-3px) scale(1.05);
 }
 
-/* Mission Block */
+/* Mission Block - Hover Effect */
 .mission-block {
   background: #111417;
   border: 1px solid #2a2f33;
@@ -314,6 +315,7 @@ body::before {
   margin-top: 1.2rem;
 }
 
+/* Goal Items - Hover Effect */
 .goal-item {
   background: #1a1f24;
   padding: 0.4rem 1rem;
@@ -322,6 +324,7 @@ body::before {
   border: 1px solid #2a2f33;
   transition: all 0.2s ease;
   cursor: pointer;
+  display: inline-block;
 }
 
 .goal-item:hover {
@@ -330,7 +333,7 @@ body::before {
   background: rgba(134, 239, 172, 0.1);
 }
 
-/* Featured Projects */
+/* Featured Projects - Hover Effect */
 .featured-projects {
   margin: 2rem 0;
   animation: fadeInUp 0.5s ease-out 0.3s forwards;
@@ -379,7 +382,7 @@ body::before {
   background: #1a2a1f;
   padding: 0.2rem 0.6rem;
   border-radius: 20px;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 
 .project-item:hover .project-status {
@@ -387,7 +390,7 @@ body::before {
   background: #2a3a2f;
 }
 
-/* Projects Page - Repo Cards */
+/* Projects Page - Repo Cards Hover Effect */
 .repo-list {
   display: flex;
   flex-direction: column;
@@ -422,7 +425,7 @@ body::before {
   text-decoration: none;
   font-size: 1.15rem;
   font-weight: 600;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   display: inline-block;
 }
 
@@ -444,7 +447,7 @@ body::before {
   margin-top: 0.5rem;
 }
 
-/* Project Cards Mini */
+/* Project Cards Mini - Hover Effect */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -480,7 +483,7 @@ body::before {
   padding: 0.2rem 0.75rem;
   border-radius: 30px;
   color: #86efac;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 
 .project-card-mini:hover .status-badge {
@@ -493,7 +496,7 @@ body::before {
   color: #c9e49a;
 }
 
-/* GitHub CTA */
+/* GitHub CTA - Hover Effect */
 .github-cta {
   text-align: center;
   margin: 2rem 0;
@@ -518,7 +521,7 @@ body::before {
   color: #86efac;
   text-decoration: none;
   font-weight: 600;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   display: inline-block;
 }
 
@@ -527,7 +530,7 @@ body::before {
   text-decoration: underline;
 }
 
-/* About Page */
+/* About Page - Bio Card Hover */
 .bio-card {
   background: #111417;
   border-radius: 24px;
@@ -558,6 +561,7 @@ body::before {
   margin-top: 1rem;
 }
 
+/* Principle Items - Hover Effect */
 .principle {
   padding: 0.8rem 0;
   border-bottom: 1px solid #23282e;
@@ -572,7 +576,7 @@ body::before {
   color: #86efac;
 }
 
-/* Contact Page */
+/* Contact Page - Cards Hover */
 .contact-card-main {
   background: #111417;
   border: 1px solid #2a2f33;
@@ -597,6 +601,7 @@ body::before {
   gap: 1.5rem;
 }
 
+/* Contact Items - Hover Effect */
 .contact-item {
   display: flex;
   gap: 1rem;
@@ -614,7 +619,7 @@ body::before {
 
 .contact-icon {
   font-size: 1.8rem;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 
 .contact-item:hover .contact-icon {
@@ -632,7 +637,7 @@ body::before {
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   display: inline-block;
 }
 
@@ -641,6 +646,7 @@ body::before {
   text-decoration: underline;
 }
 
+/* Availability Box - Hover Effect */
 .availability-box {
   background: #111417;
   border-radius: 24px;
@@ -665,6 +671,7 @@ body::before {
   margin: 1rem 0;
 }
 
+/* Contact Form - Hover Effect */
 .contact-form-container {
   background: #111417;
   border-radius: 24px;
@@ -689,6 +696,7 @@ body::before {
   margin-bottom: 1rem;
 }
 
+/* Form Inputs - Focus Effect */
 input, textarea {
   background: #1a1f24;
   border: 1px solid #2a2f33;
@@ -705,6 +713,7 @@ input:focus, textarea:focus {
   transform: scale(1.01);
 }
 
+/* Submit Button - Hover Effect */
 .submit-btn {
   background: #86efac;
   color: #0f1214;
@@ -753,13 +762,43 @@ input:focus, textarea:focus {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 2rem; }
-  .page-title { font-size: 2rem; }
-  .two-col { grid-template-columns: 1fr; gap: 2rem; }
-  .form-row { grid-template-columns: 1fr; }
+  .container {
+    padding: 1rem;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+  }
+  
+  .two-col {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Keep hover effects on mobile (they work as tap/click feedback) */
+  .skill:hover,
+  .goal-item:hover,
+  .repo-card:hover,
+  .project-card-mini:hover,
+  .contact-item:hover {
+    transform: translateY(-3px) scale(1.02);
+  }
 }
 
 @media (max-width: 480px) {
-  .hero h1 { font-size: 1.6rem; }
-  .page-title { font-size: 1.6rem; }
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+  
+  .page-title {
+    font-size: 1.6rem;
+  }
 }
