@@ -1,50 +1,58 @@
-//  - Hamburger menu and contact form handling 
+// Hamburger menu 
 document.addEventListener('DOMContentLoaded', function() {
   // ===== HAMBURGER MENU =====
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
   
   if (hamburger && navLinks) {
-    // Toggle menu when hamburger is clicked
+    // Create overlay element
+    const overlay = document.createElement('div');
+    overlay.className = 'menu-overlay';
+    document.body.appendChild(overlay);
+    
+    // Function to close menu
+    function closeMenu() {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    }
+    
+    // Function to open menu
+    function openMenu() {
+      hamburger.classList.add('active');
+      navLinks.classList.add('active');
+      overlay.classList.add('active');
+      document.body.classList.add('menu-open');
+    }
+    
+    // Toggle menu on hamburger click
     hamburger.addEventListener('click', function(e) {
       e.stopPropagation();
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('active');
-      document.body.classList.toggle('menu-open');
-    });
-    
-    // Close menu when clicking on any navigation link
-    const links = navLinks.querySelectorAll('a');
-    links.forEach(link => {
-      link.addEventListener('click', function(e) {
-        // Allow the link to navigate normally
-        // Just close the menu before navigation
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-        document.body.classList.remove('menu-open');
-      });
-    });
-    
-    // Close menu when clicking outside on mobile
-    document.addEventListener('click', function(event) {
-      if (window.innerWidth <= 768) {
-        const isClickInsideNav = navLinks.contains(event.target);
-        const isClickOnHamburger = hamburger.contains(event.target);
-        
-        if (!isClickInsideNav && !isClickOnHamburger && navLinks.classList.contains('active')) {
-          hamburger.classList.remove('active');
-          navLinks.classList.remove('active');
-          document.body.classList.remove('menu-open');
-        }
+      if (navLinks.classList.contains('active')) {
+        closeMenu();
+      } else {
+        openMenu();
       }
     });
     
-    // Prevent body scroll when menu is open
+    // Close menu when clicking on overlay
+    overlay.addEventListener('click', function() {
+      closeMenu();
+    });
+    
+    // Close menu when clicking on any nav link
+    const links = navLinks.querySelectorAll('a');
+    links.forEach(link => {
+      link.addEventListener('click', function() {
+        closeMenu();
+      });
+    });
+    
+    // Close menu on window resize if screen becomes desktop size
     window.addEventListener('resize', function() {
       if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-        document.body.classList.remove('menu-open');
+        closeMenu();
       }
     });
   }
@@ -83,8 +91,6 @@ document.addEventListener('DOMContentLoaded', function() {
       form.reset();
       
       successDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      
-      console.log('Message from:', name, email);
     });
     
     function escapeHtml(str) {
