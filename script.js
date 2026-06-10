@@ -1,38 +1,85 @@
-
+// script.js - Hamburger menu and contact form handling
 document.addEventListener('DOMContentLoaded', function() {
+  // ===== HAMBURGER MENU =====
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', function() {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+    });
+    
+    // Close menu when clicking on a link
+    const links = navLinks.querySelectorAll('a');
+    links.forEach(link => {
+      link.addEventListener('click', function() {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      });
+    });
+    
+    // Close menu when clicking outside on mobile
+    document.addEventListener('click', function(event) {
+      if (window.innerWidth <= 768) {
+        const isClickInside = navLinks.contains(event.target) || hamburger.contains(event.target);
+        if (!isClickInside && navLinks.classList.contains('active')) {
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        }
+      }
+    });
+  }
+  
+  // ===== CONTACT FORM HANDLING =====
   const form = document.getElementById('contactForm');
-  if (!form) return;
-
-  const submitBtn = document.getElementById('submitBtn');
-  const successDiv = document.getElementById('successNotification');
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
+  if (form) {
+    const submitBtn = document.getElementById('submitBtn');
+    const successDiv = document.getElementById('successNotification');
     
-    const name = document.getElementById('userName').value.trim();
-    const email = document.getElementById('userEmail').value.trim();
-    const message = document.getElementById('userMessage').value.trim();
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('userName').value.trim();
+      const email = document.getElementById('userEmail').value.trim();
+      const message = document.getElementById('userMessage').value.trim();
+      
+      if (!name || !email || !message) {
+        alert('Please fill in all fields before sending.');
+        return;
+      }
+      
+      if (!email.includes('@') || !email.includes('.')) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+      
+      successDiv.innerHTML = `
+        <p>✓ Message sent successfully!</p>
+        <small>Thanks ${escapeHtml(name)} — Pius will be in touch with you shortly.</small>
+      `;
+      successDiv.classList.remove('hidden');
+      
+      form.classList.add('submitted-state');
+      if (submitBtn) submitBtn.disabled = true;
+      form.reset();
+      
+      successDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      
+      console.log('Message from:', name, email);
+    });
     
-    if (!name || !email || !message) {
-      alert('Please fill in all fields before sending.');
-      return;
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+      });
     }
-    
-    if (!email.includes('@') || !email.includes('.')) {
-      alert('Please enter a valid email address.');
-      return;
-    }
-    
-    successDiv.innerHTML = `
-      <p>✓ Message sent successfully!</p>
-      <small>Thanks ${name} — Pius will be in touch with you shortly.</small>
-    `;
-    successDiv.classList.remove('hidden');
-    
-    form.classList.add('submitted-state');
-    submitBtn.disabled = true;
-    form.reset();
-    
-    successDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  });
+  }
 });
