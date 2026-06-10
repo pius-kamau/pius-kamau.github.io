@@ -1,78 +1,74 @@
-
+// script.js
 document.addEventListener('DOMContentLoaded', function() {
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
+  var hamburger = document.getElementById('hamburger');
+  var navLinks = document.getElementById('navLinks');
   
   if (hamburger && navLinks) {
-    // Create overlay
-    const overlay = document.createElement('div');
-    overlay.className = 'menu-overlay';
-    document.body.appendChild(overlay);
-    
-    function closeMenu() {
-      hamburger.classList.remove('active');
-      navLinks.classList.remove('active');
-      overlay.classList.remove('active');
-      document.body.classList.remove('menu-open');
-    }
-    
-    function openMenu() {
-      hamburger.classList.add('active');
-      navLinks.classList.add('active');
-      overlay.classList.add('active');
-      document.body.classList.add('menu-open');
-    }
-    
-    // Toggle menu
-    hamburger.onclick = function(e) {
+    // Toggle menu when hamburger is clicked
+    hamburger.addEventListener('click', function(e) {
       e.stopPropagation();
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      // Prevent body scroll when menu is open
       if (navLinks.classList.contains('active')) {
-        closeMenu();
+        document.body.style.overflow = 'hidden';
       } else {
-        openMenu();
+        document.body.style.overflow = '';
       }
-    };
+    });
     
-    // Close overlay
-    overlay.onclick = closeMenu;
 
-    const links = navLinks.getElementsByTagName('a');
-    for (let i = 0; i < links.length; i++) {
-      links[i].onclick = function() {
-        closeMenu();
-        return true;
-      };
+    var links = navLinks.querySelectorAll('a');
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function() {
+        // Close the menu
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.body.style.overflow = '';
+
+      });
     }
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768) {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+    });
   }
   
   // Contact form handling
-  const form = document.getElementById('contactForm');
+  var form = document.getElementById('contactForm');
   if (form) {
-    form.onsubmit = function(e) {
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
-      const name = document.getElementById('userName').value.trim();
-      const email = document.getElementById('userEmail').value.trim();
-      const message = document.getElementById('userMessage').value.trim();
+      var name = document.getElementById('userName').value.trim();
+      var email = document.getElementById('userEmail').value.trim();
+      var message = document.getElementById('userMessage').value.trim();
       
       if (!name || !email || !message) {
         alert('Please fill in all fields.');
         return;
       }
       
-      if (!email.includes('@')) {
-        alert('Enter a valid email.');
+      if (email.indexOf('@') === -1 || email.indexOf('.') === -1) {
+        alert('Please enter a valid email address.');
         return;
       }
       
-      const successDiv = document.getElementById('successNotification');
-      successDiv.innerHTML = '<p>✓ Message sent!</p><small>Thanks ' + name + ' — Pius will be in touch.</small>';
-      successDiv.className = 'success-message';
+      var successDiv = document.getElementById('successNotification');
+      successDiv.innerHTML = '<p>✓ Message sent successfully!</p><small>Thanks ' + name + ' — Pius will be in touch with you shortly.</small>';
+      successDiv.classList.remove('hidden');
       
       form.style.pointerEvents = 'none';
       form.style.opacity = '0.6';
       form.reset();
       
       successDiv.scrollIntoView({ behavior: 'smooth' });
-    };
+    });
   }
 });
