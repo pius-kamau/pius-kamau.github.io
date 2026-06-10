@@ -1,4 +1,4 @@
-/* style.css - Shared styles for all pages */
+/* style.css - Shared styles for all pages (with hamburger fixes) */
 * {
   margin: 0;
   padding: 0;
@@ -56,7 +56,8 @@ body::before {
   color: #e5e7eb;
   text-decoration: none;
   transition: color 0.2s;
-  z-index: 101;
+  z-index: 1001;
+  position: relative;
 }
 
 .logo:hover {
@@ -77,6 +78,7 @@ body::before {
   font-weight: 500;
   transition: all 0.2s;
   padding: 0.2rem 0;
+  cursor: pointer;
 }
 
 .nav-links a:hover,
@@ -85,7 +87,7 @@ body::before {
   border-bottom: 2px solid #86efac;
 }
 
-/* Hamburger Button (hidden on desktop) */
+/* Hamburger Button */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -93,9 +95,10 @@ body::before {
   width: 30px;
   height: 21px;
   cursor: pointer;
-  z-index: 101;
+  z-index: 1001;
   background: transparent;
   border: none;
+  position: relative;
 }
 
 .hamburger span {
@@ -118,10 +121,10 @@ body::before {
   transform: translateY(-9px) rotate(-45deg);
 }
 
-/* Mobile Navigation Overlay */
+/* Mobile Navigation Overlay - FIXED for clickability */
 @media (max-width: 768px) {
   .container {
-    padding: 1.2rem;
+    padding: 1rem;
   }
   
   .hamburger {
@@ -132,18 +135,19 @@ body::before {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 70%;
-    max-width: 280px;
+    width: 75%;
+    max-width: 300px;
     height: 100vh;
-    background: #11171c;
+    background: #0f1214;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    transition: right 0.3s ease;
-    z-index: 100;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
     border-left: 1px solid #2a2f33;
-    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.8);
+    padding: 2rem 1rem;
   }
   
   .nav-links.active {
@@ -151,12 +155,26 @@ body::before {
   }
   
   .nav-links a {
-    font-size: 1.1rem;
-    padding: 0.5rem;
+    font-size: 1.2rem;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    text-align: center;
+    color: #e5e7eb;
+    display: block;
+    pointer-events: auto;
+    cursor: pointer;
   }
   
-  /* Overlay background */
-  body.menu-open::after {
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: #86efac;
+    background: rgba(134, 239, 172, 0.1);
+    border-bottom: none;
+    border-radius: 8px;
+  }
+  
+  /* Overlay background when menu is open */
+  body.menu-open::before {
     content: '';
     position: fixed;
     top: 0;
@@ -164,7 +182,13 @@ body::before {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
-    z-index: 99;
+    z-index: 999;
+    pointer-events: auto;
+  }
+  
+  /* Ensure body content doesn't scroll when menu is open */
+  body.menu-open {
+    overflow: hidden;
   }
 }
 
@@ -746,7 +770,7 @@ textarea:focus {
 /* Responsive */
 @media (max-width: 768px) {
   .container {
-    padding: 1.2rem;
+    padding: 1rem;
   }
   
   .hero h1 {
@@ -754,7 +778,7 @@ textarea:focus {
   }
   
   .page-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   
   .two-col,
@@ -774,10 +798,10 @@ textarea:focus {
 
 @media (max-width: 480px) {
   .page-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
   
   .hero h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 }
